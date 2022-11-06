@@ -3,12 +3,11 @@ import {
   faCheck,
   faTimes,
   faInfoCircle,
-  faEye,
-  faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "./api/axios";
+import axios from "../api/axios";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -30,37 +29,18 @@ const Register = () => {
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
-  //   const [type, setType] = useState("password");
-  //   const [icon, setIcon] = useState(faEye);
-
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-
-  //   const handleToggle = () => {
-  //     if (type === "password") {
-  //       setIcon(faEye);
-  //       setType("text");
-  //     } else {
-  //       setIcon(faEyeSlash);
-  //       setType("password");
-  //     }
-  //   };
 
   useEffect(() => {
     userRef.current.focus();
   }, []);
 
   useEffect(() => {
-    // const result = USER_REGEX.test(user);
-    // console.log(result);
-    // console.log(user);
     setValidName(USER_REGEX.test(user));
   }, [user]);
 
   useEffect(() => {
-    // const result = PWD_REGEX.test(user);
-    // console.log(result);
-    // console.log(pwd);
     setValidPwd(PWD_REGEX.test(pwd));
     setValidMatch(pwd === matchPwd);
   }, [pwd, matchPwd]);
@@ -89,11 +69,11 @@ const Register = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data);
-      console.log(response.accessToken);
-      console.log(JSON.stringify(response));
+      // console.log(response.data);
+      // console.log(response.accessToken);
+      // console.log(JSON.stringify(response));
       setSuccess(true);
-      //clear input fields
+      //clear state and controlled inputs
       setUser("");
       setPwd("");
       setMatchPwd("");
@@ -115,7 +95,8 @@ const Register = () => {
         <section>
           <h1>Success!</h1>
           <p>
-            <a href="#">Sign In</a>
+            {/* <a href="#">Sign In</a> */}
+            <Link to="/">Sign In</Link>
           </p>
         </section>
       ) : (
@@ -246,8 +227,7 @@ const Register = () => {
             Already registered?
             <br />
             <span className="line">
-              {/*put router link here*/}
-              <a href="#">Sign In</a>
+              <Link to="/">Sign In</Link>
             </span>
           </p>
         </section>
