@@ -22,7 +22,7 @@ const Users = () => {
         console.log(response.data);
         isMounted && setUsers(response.data);
       } catch (err) {
-        console.log("Error");
+        // console.log("Error");
         console.error(err);
         navigate("/login", { state: { from: location }, replace: true });
         //state: {from: ...} essentially store the location in history from where they came from
