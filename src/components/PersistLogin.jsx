@@ -14,7 +14,7 @@ const PersistLogin = () => {
         await refresh();
         //reach out the end point and take the cookie with it
         //when it sends the cookie to refresh end point,then it
-        //sends us back new access token
+        //sends us back new accessToken
       } catch (err) {
         console.error(err);
       } finally {
