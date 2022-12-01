@@ -5,7 +5,6 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "../api/axios";
 
