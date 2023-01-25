@@ -12,7 +12,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
 
   const userRef = useRef();
   const errRef = useRef();
@@ -42,7 +42,7 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log(JSON.stringify(response?.data));
+      // console.log(JSON.stringify(response?.data));
       //   console.log(JSON.stringify(response));
 
       const accessToken = response?.data?.accessToken;
